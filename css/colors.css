@@ -1,0 +1,31 @@
+/*
+  Nimaro at 17 — design tokens
+  ----------------------------
+  Extracted from the original flip-book design (previously loaded from a
+  Sprint-internal design-system stylesheet; re-homed here as plain, local
+  CSS so this project carries no Sprint branding or internal paths).
+
+  Every page in index.html sets these values directly as inline styles
+  (that's how the original design canvas exported it), so this file isn't
+  load-bearing for the page to render — it exists as a readable record of
+  the palette and a couple of baseline resets.
+*/
+
+:root {
+  --nimaro-ink:        #0d0d20; /* near-black backdrop, stage background */
+  --nimaro-navy:       #1B1949; /* primary dark page background */
+  --nimaro-magenta:    #870C71; /* primary accent / active state */
+  --nimaro-pink:       #efa3e5; /* light accent, highlights, captions */
+  --nimaro-off-white:  #F6F4F8; /* light page background */
+
+  --nimaro-font-display: 'Anton', sans-serif;      /* big headline numerals & titles */
+  --nimaro-font-serif:   'Cormorant Garamond', serif; /* italic editorial accents */
+  --nimaro-font-body:    'Nunito', sans-serif;     /* body copy, UI chrome */
+}
+
+html, body {
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}

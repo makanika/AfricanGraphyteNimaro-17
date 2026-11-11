@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1350">
+  <rect width="1080" height="1350" fill="#1B1949"/>
+  <circle cx="540" cy="620" r="150" fill="none" stroke="#efa3e5" stroke-width="10" opacity="0.55"/>
+  <path d="M470 600 h140 l20 36 h-180 z" fill="none" stroke="#efa3e5" stroke-width="10" stroke-linejoin="round" opacity="0.55"/>
+  <circle cx="540" cy="650" r="34" fill="none" stroke="#efa3e5" stroke-width="10" opacity="0.55"/>
+  <text x="540" y="860" text-anchor="middle" font-family="Nunito, sans-serif" font-weight="800" font-size="28" letter-spacing="2" fill="#efa3e5" opacity="0.85">PHOTO TO COME</text>
+</svg>
