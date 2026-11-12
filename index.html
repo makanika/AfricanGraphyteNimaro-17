@@ -170,7 +170,8 @@ class Component extends DCLogic {
       {t:'Swimming',d:'You mastered it, and swam your heart out in Kenya this last time.',a:'photos/p09.jpg',b:'photos/p20.jpg',ar:'3/4',pos:'50% 50%',pos2:'50% 60%',cols:'1fr 1fr',showB:'block'},
       {t:'A little sister',d:'You welcomed her, and learned to love her.',a:'photos/p20.jpg',b:'',ar:'4/3',pos:'40% 60%',pos2:'',cols:'1fr',showB:'none'},
       {t:'Behind the wheel',d:'From pretending in the driver’s seat to your first independent turns learning to drive.',a:'photos/p14.jpg',b:'photos/p03.jpg',ar:'4/3',pos:'50% 50%',pos2:'60% 50%',cols:'1fr 1fr',showB:'block'},
-      {t:'School',d:'Steadily forging your path through the complex halls.',a:'photos/p02.jpg',b:'photos/p04.jpg',ar:'3/4',pos:'50% 30%',pos2:'50% 30%',cols:'1fr 1fr',showB:'block'}
+      {t:'School',d:'Steadily forging your path through the complex halls.',a:'photos/p02.jpg',b:'photos/p04.jpg',ar:'3/4',pos:'50% 30%',pos2:'50% 30%',cols:'1fr 1fr',showB:'block'},
+      {t:'Aunt Fiona, the spoiler',d:'From the day you were small enough to carry to the day you both stood shoulder to shoulder, she has never once stopped spoiling you.',a:'uploads/aunt-fiona-1.jpg',b:'uploads/aunt-fiona-2.jpg',ar:'4/3',pos:'50% 30%',pos2:'50% 35%',cols:'1fr 1fr',showB:'block'}
     ];
     return {
       chapters: ch.map((c,i)=>({...c,n:String(i+1).padStart(2,'0'),textOrder:i%2?2:0,hasB:!!c.b})),
