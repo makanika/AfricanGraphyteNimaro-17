@@ -59,6 +59,29 @@ NEW_HEAD = """<!DOCTYPE html>
 <link rel="alternate icon" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
 
+<script>
+  // Registered as early as possible, in the capture phase, on `document` —
+  // not inside DOMContentLoaded. A handful of source photos referenced by
+  // the original design were never supplied (see README "Missing photos").
+  // Rather than show a broken-image icon on those spreads, this swaps in a
+  // quiet placeholder tile that matches the book's own palette. The cover
+  // and contents-page photos load eagerly (no `loading="lazy"`), so their
+  // network error can arrive before a DOMContentLoaded-scoped listener
+  // would ever get attached — `error` doesn't bubble, so capturing on
+  // `document` from the very top of <head> is what makes this reliable
+  // for every image, eager or lazy, not just the ones below the fold.
+  document.addEventListener("error", function (e) {
+    var img = e.target;
+    if (!img || img.tagName !== "IMG" || img.id === "lightboxImg") return;
+    if (img.dataset.fallenBack) return;
+    img.dataset.fallenBack = "1";
+    img.src = "/missing.svg";
+    img.style.objectFit = "contain";
+    img.style.background = "#1B1949";
+    img.style.padding = "12%";
+  }, true);
+</script>
+
 <link rel="stylesheet" href="css/colors.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Nunito:wght@400;600;700;800;900&display=swap">
 <style>
@@ -245,21 +268,6 @@ NEW_TAIL = """<div style="position:absolute;left:0;right:0;top:0;padding:22px 32
       measure();
       goPage(p);
     } catch (e) { measure(); apply(); }
-
-    // A handful of source photos referenced by the original design were never
-    // supplied to this session (see README "Missing photos"). Rather than show
-    // a broken-image icon on those spreads, swap in a quiet placeholder tile
-    // that matches the book's own palette.
-    document.querySelectorAll("img").forEach(function (img) {
-      img.addEventListener("error", function () {
-        if (img.dataset.fallenBack) return;
-        img.dataset.fallenBack = "1";
-        img.src = "missing.svg";
-        img.style.objectFit = "contain";
-        img.style.background = "#1B1949";
-        img.style.padding = "12%";
-      });
-    });
   });
 })();
 </script>
